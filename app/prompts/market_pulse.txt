@@ -1,0 +1,19 @@
+Today is $report_date (US/Eastern). Write the MARKET PULSE commentary from the JSON data below.
+RSP is the equal-weight S&P 500 ETF, SPY is the cap-weighted S&P 500 ETF, QQQ is the Nasdaq 100 ETF.
+
+Required structure (in Turkish):
+1. "Sektör görünümü" — which sector ETFs led and lagged today and over the week, using only the
+   percent values in `sectors`. Mention at most the top/bottom 2-3 of each; no speculation about causes.
+2. "Piyasa genişliği (RSP vs SPY)" — the `signal` field in `rsp_spy` is precomputed by code:
+   "broad_participation" means the equal-weight index outpaced the cap-weighted one (the rally is
+   broad-based), "megacap_concentration" means a few mega-caps are carrying the index,
+   "neutral" means no clear read. Explain what the given signal implies in plain language, with
+   conditional phrasing. Never recompute or second-guess it.
+3. "Trend konumu" — for each entry in `ma_positioning`, state whether the index proxy is above or
+   below its 50- and 200-day moving averages and by what percent (the values are given), and what
+   that conventionally suggests — conditional language only.
+
+If a section is null or missing, say so in one sentence and move on.
+
+DATA:
+$payload_json
