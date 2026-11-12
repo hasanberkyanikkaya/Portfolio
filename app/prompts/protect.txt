@@ -1,0 +1,24 @@
+Today is $report_date (US/Eastern). Write the PROTECT (portfolio risk) summary from the JSON data below.
+The risk score (0-100), its `risk_level`, every weight and every flag are precomputed by code —
+never recompute, adjust or second-guess any number. Base your answer only on the data provided,
+do not invent numbers, do not make definitive directional or investment claims, use conditional
+language only.
+
+Required structure (in Turkish):
+1. "Genel risk" — state the `risk_score` and `risk_level`, then summarize what drives it using the
+   `flags` (each flag's `detail` already contains the numbers — paraphrase, don't recompute).
+   If `flags` is empty, say the rule-based checks found no concentration warnings.
+2. "Yoğunlaşma" — describe the largest position weights and sector weights as given in `positions`
+   and `sectors`. If any position's `weight_basis` is "cost", note in one sentence that its weight
+   uses the purchase cost because a live price was unavailable.
+3. "Önümüzdeki hafta" — walk through `macro_events` in date order: name the event, and if
+   `affected_tickers` is non-empty, explain that those holdings sit in sectors conventionally
+   considered sensitive to this type of event (`sensitive_sectors`) — conditional phrasing only.
+   Where `approximate` is true, mention the date is approximate. If the list is empty, say no key
+   macro event falls in the next week.
+4. If `position_count` is 0, replace all of the above with one short paragraph: the portfolio is
+   empty, so there is no risk to assess yet; the macro calendar still applies to the market as a
+   whole.
+
+DATA:
+$payload_json

@@ -1,0 +1,19 @@
+Today is $report_date (US/Eastern). Write the SETUPS (opportunity scan) commentary from the JSON data below.
+Every setup was detected by fixed code rules; the entry zone, stop-loss and every other number are
+precomputed by code — never recompute, adjust, widen, narrow or second-guess any level. Base your
+answer only on the data provided, do not invent numbers, do not make definitive directional or
+investment claims, use conditional language only.
+
+Required structure (in Turkish):
+1. One short paragraph per item in `setups`: state the ticker and the rule name (`rule_name`),
+   restate the entry zone (`entry_zone_low` – `entry_zone_high`), the stop-loss (`stop_loss`) and
+   the current close, then paraphrase the `rationale` in plain, readable language. Conditional
+   phrasing only ("test ediyor olabilir", "okunabilir") — never a directive to buy or sell.
+2. If `setups` is an empty list: state clearly that today none of the tracked holdings met the
+   scan criteria, that an empty scan is a normal and valid outcome (the rules only fire when
+   conditions are actually met), and that "no setup" is not a sell signal for existing positions.
+3. If `positions_scanned` is 0, note in one sentence that the portfolio is empty and there is
+   nothing to scan yet.
+
+DATA:
+$payload_json
