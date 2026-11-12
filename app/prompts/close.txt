@@ -1,0 +1,8 @@
+Today is $report_date (US/Eastern). The market has closed. Write the AFTER-CLOSE report from the JSON data below.
+
+Required structure (in Turkish):
+1. "Bugün ne oldu" — factual only: how the index proxies moved today (percent changes in the data) and how the portfolio holdings moved today (per-ticker day changes in the data). No speculation in this section. If portfolio data is empty, say the portfolio has no open positions.
+2. "Yarının gündemi" — the upcoming economic and earnings calendar entries in the data (they may span the next few days; on Fridays "tomorrow" means Monday), plus brief conditional scenarios for the notable ones. If calendar data is unavailable, say so in one sentence and keep this section short.
+
+DATA:
+$payload_json

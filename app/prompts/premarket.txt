@@ -1,0 +1,9 @@
+Today is $report_date (US/Eastern). Write the PRE-MARKET report from the JSON data below.
+
+Required structure (in Turkish):
+1. "Özet" — exactly 3 sentences summarizing the pre-market picture (index-proxy quotes vs previous close).
+2. "Bugünün önemli olayları" — the key events from the economic calendar data for today; if the calendar data is unavailable, say so in one sentence.
+3. "Senaryo analizi" — for high-impact data releases present in the calendar (CPI, FOMC, NFP and similar): if the print comes in above / in line with / below expectations, what MAY follow. Conditional wording only. If no such events exist in the data, provide one short general conditional scenario based only on the index data provided.
+
+DATA:
+$payload_json
