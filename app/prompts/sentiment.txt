@@ -1,0 +1,22 @@
+Today is $report_date (US/Eastern). Write the SENTIMENT (fear & greed) commentary from the JSON data below.
+The composite `score` runs 0-100 (0 = extreme fear, 100 = extreme greed). The score, its `label` and
+every component sub-score are precomputed by code — never recompute, adjust or second-guess any number.
+
+Required structure (in Turkish):
+1. "Genel skor" — state the composite score and its label. Explain what the label conventionally
+   implies: extreme fear has historically been read as a potential opportunity zone (a contrarian
+   view), extreme greed as a risk/complacency signal. Conditional phrasing only, never a directive.
+2. "Bileşenler" — one short paragraph for each component that is present:
+   - `vix`: the VIX level versus its 1-year average and what the given deviation suggests about
+     expected volatility and market nerves.
+   - `momentum`: SPY's distance from its 125-day moving average and what that positioning
+     conventionally indicates about the trend.
+   - `breadth`: how many of the tracked NASDAQ stocks sit at new 52-week closing highs versus lows
+     and what that says about how broad the current move is.
+3. If `components_used` is less than 3, note in one sentence which component(s) are missing and
+   that the score is based on the remaining ones.
+
+If a component is null, skip its paragraph (covered by rule 3).
+
+DATA:
+$payload_json
